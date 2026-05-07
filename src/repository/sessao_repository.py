@@ -49,3 +49,23 @@ class SessaoRepository:
         conexao.close()
 
         return sessoes
+    
+    def buscar_capacidade_cinema(self, cinema_id):
+
+        conexao = sqlite3.connect("cinema.db")
+        cursor = conexao.cursor()
+
+        cursor.execute("""
+        SELECT capacidade
+        FROM cinemas
+        WHERE id = ?
+        """, (cinema_id,))
+
+        resultado = cursor.fetchone()
+
+        conexao.close()
+
+        if resultado:
+            return resultado[0]
+
+        return None

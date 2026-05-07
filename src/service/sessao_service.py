@@ -11,10 +11,22 @@ class SessaoService:
             print("Público inválido!")
             return
 
+        capacidade = self.repository.buscar_capacidade_cinema(
+            sessao.cinema_id
+        )
+
+        if capacidade is None:
+            print("Cinema não encontrado!")
+            return
+
+        if sessao.publico > capacidade:
+            print("Público maior que a capacidade do cinema!")
+            return
+
         self.repository.cadastrar(sessao)
 
         print("Sessão cadastrada com sucesso!")
-
+        
     def listar_sessoes(self):
 
         sessoes = self.repository.listar_sessoes()
