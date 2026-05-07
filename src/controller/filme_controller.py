@@ -21,3 +21,5 @@ class FilmeController:
         )
 
         self.service.cadastrar_filme(filme)
+    def listar(self):
+        self.service.listar_filmes()

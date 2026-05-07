@@ -24,3 +24,16 @@ class FilmeRepository:
 
         conexao.commit()
         conexao.close()
+
+    def listar_filmes(self):
+
+        conexao = sqlite3.connect("cinema.db")
+        cursor = conexao.cursor()
+
+        cursor.execute("SELECT * FROM filmes")
+
+        filmes = cursor.fetchall()
+
+        conexao.close()
+
+        return filmes
