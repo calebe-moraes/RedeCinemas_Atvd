@@ -1,0 +1,27 @@
+@startuml atividade_sessao
+
+start
+
+:Informar horário da sessão;
+
+:Informar público;
+
+:Informar ID do filme;
+
+:Informar ID do cinema;
+
+if (Público válido?) then (Sim)
+
+    :Salvar sessão no banco;
+
+    :Exibir mensagem de sucesso;
+
+else (Não)
+
+    :Exibir erro;
+
+endif
+
+stop
+
+@enduml
