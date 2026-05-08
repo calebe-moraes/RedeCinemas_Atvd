@@ -1,0 +1,26 @@
+@startuml casosdeuso
+
+left to right direction
+
+actor Funcionário
+actor Espectador
+
+rectangle "Sistema Rede de Cinemas" {
+
+    usecase "Cadastrar Filme" as UC1
+    usecase "Cadastrar Cinema" as UC2
+    usecase "Criar Sessão" as UC3
+    usecase "Registrar Público" as UC4
+    usecase "Consultar Filmes" as UC5
+    usecase "Consultar Sessões" as UC6
+}
+
+Funcionário --> UC1
+Funcionário --> UC2
+Funcionário --> UC3
+Funcionário --> UC4
+
+Espectador --> UC5
+Espectador --> UC6
+
+@enduml

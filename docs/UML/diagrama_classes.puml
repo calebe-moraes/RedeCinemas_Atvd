@@ -1,0 +1,30 @@
+@startuml diagrama_classes
+
+class Filme {
+    id
+    titulo
+    duracao
+    genero
+    classificacao
+}
+
+class Cinema {
+    id
+    nome
+    cidade
+    estado
+    capacidade
+}
+
+class Sessao {
+    id
+    horario
+    publico
+    filme_id
+    cinema_id
+}
+
+Cinema "1" -- "*" Sessao
+Filme "1" -- "*" Sessao
+
+@enduml
