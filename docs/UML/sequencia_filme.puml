@@ -1,0 +1,29 @@
+@startuml sequencia_filme
+
+actor Usuario
+
+participant View
+participant FilmeController
+participant FilmeService
+participant FilmeRepository
+database SQLite
+
+Usuario -> View : Preenche dados do filme
+
+View -> FilmeController : cadastrar()
+
+FilmeController -> FilmeService : cadastrar_filme(filme)
+
+FilmeService -> FilmeRepository : cadastrar(filme)
+
+FilmeRepository -> SQLite : INSERT INTO filmes
+
+SQLite --> FilmeRepository : confirmação
+
+FilmeRepository --> FilmeService : sucesso
+
+FilmeService --> FilmeController : filme cadastrado
+
+FilmeController --> View : exibir mensagem
+
+@enduml
